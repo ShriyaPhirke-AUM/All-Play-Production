@@ -101,21 +101,15 @@ export function createApp({ rateMax = 10, emailTransport } = {}) {
         message: "Email delivery is not configured yet. Please contact us directly.",
       });
 
-    const { name, parentName, age, mobile, email, address, program, message } = result.data;
-    const programName = {
-      children: "Children's Theatre Program",
-      teen: "Teen Theatre Program",
-      workshops: "Workshops",
-      productions: "Productions",
-    }[program];
+    const { name, parentName, age, mobile, email, address, referralSource, message } = result.data;
     const emailText = [
       `Parent's Name: ${parentName || "Not provided"}`,
-      `Participant's Name: ${name}`,
-      `Participant's Age: ${age}`,
+      `The Student's Name: ${name}`,
+      `The Student's Age: ${age}`,
       `Mobile Number: ${mobile}`,
       `Email Address: ${email}`,
       `Address: ${address || "Not provided"}`,
-      `Preferred Program: ${programName}`,
+      `How they heard about All Play Productions: ${referralSource || "Not provided"}`,
       `Message: ${message || "Not provided"}`,
     ].join("\n");
     try {
@@ -123,7 +117,7 @@ export function createApp({ rateMax = 10, emailTransport } = {}) {
         from,
         to: ["allplayproductionsworkshops@gmail.com"],
         reply_to: email,
-        subject: `Website enquiry - ${programName}`,
+        subject: "Website enquiry",
         text: emailText,
       };
       const delivery = emailTransport

@@ -9,7 +9,7 @@ export function validateEnquiry(input) {
   const source =
     input && typeof input === "object" && !Array.isArray(input) ? input : {};
   const data = Object.fromEntries(
-    ["name", "parentName", "address", "age", "mobile", "email", "program", "message"].map((key) => [
+    ["name", "parentName", "address", "age", "mobile", "email", "referralSource", "message"].map((key) => [
       key,
       clean(source[key]),
     ]),
@@ -38,8 +38,8 @@ export function validateEnquiry(input) {
   else data.mobile = `+91${digits}`;
   if (data.email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
     errors.email = "Enter a valid email address.";
-  if (!programIds.includes(data.program))
-    errors.program = "Choose a preferred program.";
+  if (data.referralSource.length > 200)
+    errors.referralSource = "Keep this answer within 200 characters.";
   if (data.message.length > 2000)
     errors.message = "Keep your message within 2,000 characters.";
   if (!data.consent)

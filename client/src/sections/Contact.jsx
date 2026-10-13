@@ -78,10 +78,6 @@ export default function Contact({ selectedProgram, onSelect }) {
                 </div>
               ))}
             </div>
-            <div className="film-contact">
-              <h3>Film enquiries</h3><p>Bol Bol Raani, Itta Itta Aani</p>
-              {contact.filmPhones.map(phone => <a key={phone} href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a>)}
-            </div>
             <div className="contact-social-links" aria-label="Social media">
               <a className="social-link" href={contact.instagram} target="_blank" rel="noreferrer">
                 <Instagram size={20} /> Instagram

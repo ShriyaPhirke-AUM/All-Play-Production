@@ -24,6 +24,7 @@ export default function Programs({ onSelect, hideIntroDescription = false }) {
   const [activeProgram, setActiveProgram] = useState(null);
   const [carnivalMarathi, setCarnivalMarathi] = useState(true);
   const [dramaMarathi, setDramaMarathi] = useState(true);
+  const [productionMarathi, setProductionMarathi] = useState(true);
   const showProgramDescription = (programId) => {
     setActiveProgram((currentProgram) => currentProgram === programId ? null : programId);
   };
@@ -61,38 +62,37 @@ export default function Programs({ onSelect, hideIntroDescription = false }) {
                     </button>
                     {dramaMarathi ? (
                       <div lang="mr">
-                        <p>मुलांच्या आणि तरुणांच्या सर्जनशीलतेला, आत्मविश्वासाला आणि अभिनय कौशल्यांना वाव देणारी ही एक अनोखी नाट्यशाळा आहे. महाराष्ट्राच्या समृद्ध आणि प्राचीन नाट्यपरंपरेची ओळख करून देणे, हा या उपक्रमाचा एक महत्त्वाचा भाग आहे.</p>
-                        <p>मराठी रंगभूमीची समृद्ध सांस्कृतिक परंपरा जतन करून ती नव्या पिढीपर्यंत पोहोचवणे, हे या कार्यक्रमाचे उद्दिष्ट आहे. मराठी रंगभूमीची खास ओळख असलेली बुद्धिमत्ता, चातुर्य, सर्जनशीलता आणि प्रभावी अभिव्यक्तीची परंपरा अनुभवण्याची संधी या माध्यमातून विद्यार्थ्यांना मिळते.</p>
-                        <h3>अभ्यासक्रमाची ठळक वैशिष्ट्ये</h3>
+                        <p>नाट्यकला विद्यालय (School of Drama &amp; Theatre) हा मुलांमध्ये आणि तरुणांमध्ये सर्जनशीलता, आत्मविश्वास आणि अभिनय कौशल्ये विकसित करण्यासाठी तसेच महाराष्ट्राच्या समृद्ध सांस्कृतिक वारशाची आणि पारंपरिक नाट्यपरंपरेची ओळख करून देण्यासाठी सुरू केलेला एक अनोखा उपक्रम आहे.</p>
+                        <p>आमचा विश्वास आहे की नाट्यकला ही केवळ मनोरंजनाची किंवा सादरीकरणाची कला नसून, ती बुद्धिमत्ता, कल्पनाशक्ती, चातुर्य, आत्मअभिव्यक्ती आणि सर्जनशील विचारांना चालना देणारे प्रभावी माध्यम आहे. शिस्तबद्ध प्रशिक्षण, प्रात्यक्षिक शिक्षण आणि प्रत्यक्ष अनुभव यांच्या माध्यमातून विद्यार्थ्यांना मराठी रंगभूमीचा परिचय करून दिला जातो. त्याचबरोबर त्यांना आपल्या सांस्कृतिक मुळांशी जोडण्याची आणि जीवनोपयोगी कौशल्ये विकसित करण्याची संधी मिळते.</p>
+                        <p>या कार्यक्रमाद्वारे विद्यार्थ्यांना शिकण्याची, स्वतःला व्यक्त करण्याची, रंगमंचावर सादरीकरण करण्याची आणि स्वतःची कलात्मक क्षमता विकसित करण्याची संधी मिळते. प्रशिक्षणाच्या शेवटी आथर्वाच्या प्रतिष्ठित सभागृहात ४५ मिनिटांचे नाट्यसादरीकरण आयोजित केले जाते. मर्यादित विद्यार्थीसंख्या, अभ्यासक्रम पूर्ण केल्यानंतर प्रमाणपत्र आणि संस्थेच्या अंतर्गत नाट्य व चित्रपट निर्मितींमध्ये सहभागी होण्याच्या संधी यांमुळे विद्यार्थ्यांना रंगमंचावर तसेच त्यापलीकडेही मौल्यवान अनुभव मिळतो.</p>
+                        <h3>अभ्यासक्रमाची वैशिष्ट्ये</h3>
                         <ul>
-                          <li>वयोगट: ७–१४ वर्षे आणि १५–१९ वर्षे</li>
-                          <li>सखोल नाट्य प्रशिक्षण: नाटक व अभिनयाच्या २१ विशेष प्रशिक्षण सत्रांचा समावेश</li>
-                          <li>अंतिम सादरीकरण: अथर्वाच्या प्रतिष्ठित सभागृहात ४५ मिनिटांचे नाट्यसादरीकरण</li>
-                          <li>प्रमाणपत्र: अभ्यासक्रम पूर्ण केल्यानंतर प्रमाणपत्र प्रदान केले जाईल.</li>
-                          <li>मर्यादित प्रवेश: प्रत्येक विद्यार्थ्याकडे वैयक्तिक लक्ष देता यावे यासाठी लहान गटांमध्ये प्रशिक्षण.</li>
-                          <li>सादरीकरणाच्या संधी: संस्थेच्या अंतर्गत नाट्य आणि चित्रपट निर्मितींमध्ये सहभागी होण्याची संधी.</li>
+                          <li><strong>वयोगट:</strong> ७–१४ वर्षे आणि १५–१९ वर्षे</li>
+                          <li><strong>अंतिम सादरीकरण:</strong> आथर्वाच्या प्रतिष्ठित सभागृहात ४५ मिनिटांचे नाट्यसादरीकरण</li>
+                          <li><strong>प्रमाणपत्र:</strong> अभ्यासक्रम पूर्ण केल्यानंतर प्रमाणपत्र प्रदान केले जाईल</li>
+                          <li><strong>मर्यादित प्रवेश:</strong> वैयक्तिक मार्गदर्शन आणि प्रभावी प्रशिक्षणासाठी लहान गट</li>
+                          <li><strong>सादरीकरणाच्या संधी:</strong> संस्थेच्या अंतर्गत नाट्यप्रयोग आणि चित्रपट निर्मितींमध्ये सहभागी होण्याची संधी</li>
                         </ul>
-                        <p>हा कार्यक्रम युवा कलाकारांना रंगभूमीचा प्रत्यक्ष अनुभव घेत शिका · व्यक्त व्हा · सादर करा · प्रगती करा या प्रवासातून पुढे जाण्याची एक अनमोल संधी देतो.</p>
-                        <p>स्थळ: द व्हिलेज, आर्ट अँड कल्चर सेंटर, कोरा केंद्र हॉल, शिंपोली रोड, बोरिवली पश्चिम, मुंबई.</p>
-                        <p>संपर्क: <a href="tel:9082244109">9082244109</a> | <a href="tel:9930255054">9930255054</a> | <a href="tel:9167967756">9167967756</a></p>
+                        <p>महाराष्ट्राची समृद्ध आणि वैभवशाली नाट्यपरंपरा पुढील पिढीपर्यंत पोहोचवणे आणि तिचे जतन करणे, हे या उपक्रमाचे प्रमुख उद्दिष्ट आहे. शिका · व्यक्त व्हा · सादर करा · प्रगती करा या विचारातून तरुण कलाकारांना स्वतःमधील क्षमता ओळखण्यास आणि कलाकार म्हणून तसेच व्यक्ती म्हणून विकसित होण्यास प्रोत्साहन दिले जाते.</p>
+                        <p><strong>स्थळ:</strong> द व्हिलेज, आर्ट अँड कल्चर सेंटर, कोरा केंद्र हॉल, शिंपोली रोड, बोरिवली पश्चिम, मुंबई</p>
+                        <p><strong>संपर्क:</strong> <a href="tel:9082244109">9082244109</a> | <a href="tel:9930255054">9930255054</a> | <a href="tel:9167967756">9167967756</a></p>
                       </div>
                     ) : (
                       <div lang="en">
-                    <p>Thank you for your interest in All Play Productions’ School of Drama &amp; Theatre!</p>
-                    <p>A unique theatre school for children and young people, dedicated to nurturing their creativity, confidence and performance skills while introducing them to Maharashtra’s rich and age-old theatrical tradition.</p>
-                    <p>The programme aims to preserve and pass on this cultural heritage to the younger generation, helping them explore the intelligence, wit, creativity and expressive traditions that define Marathi theatre.</p>
-                    <h3>Course Highlights</h3>
-                    <ul>
-                      <li><strong>Age Groups:</strong> 7–14 years and 15–19 years</li>
-                      <li><strong>In-depth Drama Training:</strong> 21 focused drama sessions</li>
-                      <li><strong>Final Presentation:</strong> A 45-minute performance at Atharva’s prestigious auditorium</li>
-                      <li><strong>Certificate:</strong> Certificate awarded upon completion</li>
-                      <li><strong>Limited Seats:</strong> Small batches for focused learning</li>
-                      <li><strong>Performance Opportunities:</strong> Opportunities to participate in in-house theatre and film productions</li>
-                    </ul>
-                    <p>This programme offers a valuable opportunity for young performers to Learn · Express · Perform · Grow while experiencing the world of theatre firsthand.</p>
-                    <p><strong>Venue:</strong> The Village, Art and Culture Centre, Kora Kendra Hall, Shimpoli Road, Borivali West, Mumbai</p>
-                    <p><strong>Contact:</strong> <a href="tel:9082244109">9082244109</a> | <a href="tel:9930255054">9930255054</a> | <a href="tel:9167967756">9167967756</a></p>
+                        <p>The <strong>School of Drama &amp; Theatre</strong> is a unique initiative dedicated to nurturing the creativity, confidence and performance skills of children and young people while introducing them to Maharashtra’s rich cultural heritage and age-old theatrical traditions.</p>
+                        <p>We believe theatre is more than a performing art—it develops intelligence, imagination, wit, self-expression and creative thinking. Through structured training, hands-on learning and practical exposure, students explore the world of Marathi theatre, build a deeper connection with their cultural roots and develop essential life skills.</p>
+                        <p>The programme offers young learners opportunities to learn, express, perform and grow, culminating in a <strong>45-minute theatrical performance at Atharva’s prestigious auditorium</strong>. With small batches, a certificate upon completion and opportunities to participate in in-house theatre and film productions, students gain valuable experience both on stage and beyond.</p>
+                        <h3>Course Highlights</h3>
+                        <ul>
+                          <li><strong>Age Groups:</strong> 7–14 years and 15–19 years</li>
+                          <li><strong>Final Presentation:</strong> A 45-minute performance at Atharva’s prestigious auditorium</li>
+                          <li><strong>Certification:</strong> Certificate awarded upon completion</li>
+                          <li><strong>Limited Seats:</strong> Small batches for focused, personalised learning</li>
+                          <li><strong>Performance Opportunities:</strong> Participation in in-house theatre and film productions</li>
+                        </ul>
+                        <p>The programme aims to preserve and pass on Maharashtra’s vibrant theatrical legacy to the next generation, empowering young performers to <strong>Learn · Express · Perform · Grow</strong> while discovering their potential as artists and individuals.</p>
+                        <p><strong>Venue:</strong> The Village, Art and Culture Centre, Kora Kendra Hall, Shimpoli Road, Borivali West, Mumbai</p>
+                        <p><strong>Contact:</strong> <a href="tel:9082244109">9082244109</a> | <a href="tel:9930255054">9930255054</a> | <a href="tel:9167967756">9167967756</a></p>
                       </div>
                     )}
                   </div>
@@ -119,7 +119,7 @@ export default function Programs({ onSelect, hideIntroDescription = false }) {
                       </div>
                     ) : (
                       <div lang="en">
-                        <p>Thank you for your interest in All Play…A Carnival of Joy, a special initiative by All Play Productions that brings the joy of theatre and creative expression to underprivileged children.</p>
+                        <p>All Play…A Carnival of Joy is a special initiative by All Play Productions that brings the magic of theatre, creativity, and self-expression to underprivileged children.</p>
                         <p>Rooted in the belief that every child matters, the programme uses theatre, drama and stage performances to nurture confidence, encourage self-discovery and empower children to express themselves fearlessly. It provides an inclusive platform for children to discover their potential, overcome inhibitions and showcase their creativity.</p>
                         <p>The journey began with children from rural and tribal communities in Gorai, Manori and Borivali. During the COVID-19 pandemic, when schools were closed and access to the internet and mobile devices was limited, All Play Productions continued engaging children through acting, drama, theatre and stage performances, helping them explore their personalities and discover the joy of performing.</p>
                         <h3>Programme Highlights</h3>
@@ -137,12 +137,26 @@ export default function Programs({ onSelect, hideIntroDescription = false }) {
                   </div>
                 ) : program.id === "all-play-production" ? (
                   <div className="drama-course-details">
-                    <p className="eyebrow">OUR FIRST SHORT FILM</p>
-                    <h3>Bol Bol Raani, <em>Itta Itta Aani</em></h3>
-                    <p>{program.description}</p>
-                    <p>The film offers a glimpse into the world of a woman who exists within her own universe—resilient and powerful, yet vulnerable in moments when the world refuses to understand her. <em>Bol Bol Raani, Itta Itta Aani</em> follows her journey of self-discovery as she learns to understand, accept, and come to terms with who she truly is.</p>
-                    <p>Written and directed by <strong>Varshaa Raane</strong>, the film also marks her acting debut, alongside students from her <strong>School of Drama and Theatre</strong>.</p>
-                    <p><strong>All Play Productions, in association with Atharva University, Mumbai.</strong></p>
+                    <button className="text-link" type="button" onClick={() => setProductionMarathi((current) => !current)} aria-pressed={productionMarathi}>
+                      {productionMarathi ? "Read in English" : "मराठीत वाचा"}
+                    </button>
+                    {productionMarathi ? (
+                      <div lang="mr">
+                        <p>ऑल प्ले प्रॉडक्शन्सचा प्रवास नेहमीच तरुण कलाकारांना शिकण्यासाठी, सादरीकरण करण्यासाठी आणि स्वतःची कलात्मक क्षमता विकसित करण्यासाठी अर्थपूर्ण संधी उपलब्ध करून देण्याचा राहिला आहे.</p>
+                        <p>आजवर आम्ही यशस्वीपणे ५० नाट्यनिर्मिती साकारल्या आहेत. यापैकी अनेक नाटकांनी राज्यस्तरीय स्पर्धांमध्ये तसेच झांकृतीसारख्या प्रतिष्ठित व्यासपीठांवर सहभाग नोंदवला आहे. या अनुभवांमुळे आमच्या विद्यार्थ्यांना कार्यशाळेच्या मर्यादेपलीकडे जाऊन मोठ्या व्यासपीठांवर आपली कला सादर करण्याची संधी मिळाली आहे.</p>
+                        <p>रंगभूमीपासून सुरू झालेला आमचा प्रवास चित्रपटसृष्टीपर्यंतही विस्तारला आहे. आमच्या 'बोल बोल राणी, इत्ता इत्ता आणि' या मराठी लघुपटाच्या माध्यमातून विद्यार्थ्यांनी चित्रपटविश्वात पहिले पाऊल टाकले. कॅमेऱ्यासमोर अभिनय करणे, चित्रपट निर्मितीची प्रक्रिया समजून घेणे आणि व्यावसायिक चित्रपट प्रकल्पाचा भाग म्हणून काम करणे, असा अनमोल अनुभव त्यांना मिळाला.</p>
+                        <p>या लघुपटाचा प्रवास केवळ निर्मितीपुरता मर्यादित राहिला नाही. विविध चित्रपट महोत्सवांमध्ये त्याची निवड झाली आणि त्याला प्रशंसा व मान्यताही मिळाली. यामध्ये दादासाहेब फाळके चित्रपट महोत्सव आणि मुंबई आंतरराष्ट्रीय चित्रपट महोत्सव यांसारख्या महोत्सवांमधील सहभाग व गौरवाचा समावेश आहे.</p>
+                        <p>आमच्यासाठी प्रत्येक निर्मिती ही केवळ एक कलाकृती किंवा सादरीकरण नसते. ती तरुण कलाकारांना प्रत्यक्ष कामाचा अनुभव, व्यावसायिक क्षेत्राची ओळख आणि स्वतःमधील क्षमता शोधण्याची संधी देणारा एक महत्त्वपूर्ण टप्पा असतो — मग ते रंगमंच असो वा रुपेरी पडदा.</p>
+                      </div>
+                    ) : (
+                      <div lang="en">
+                        <p>At All Play Productions, our journey has always been about creating meaningful opportunities for young performers to learn, perform and grow.</p>
+                        <p>Over the years, we have successfully created 50 theatrical productions, with several productions participating at State-level competitions and platforms such as Jhankriti. These experiences have given our students the opportunity to take their theatre beyond the workshop space and onto larger platforms.</p>
+                        <p>Our journey has also expanded from theatre to cinema. Through our Marathi short film Bol Bol Rani, Itta Itta Aani. Our students stepped into the world of film, experiencing the process of camera acting, film production and working as part of a professional film project.</p>
+                        <p>The film went beyond the making process and has been travelled to various film festivals, receiving appreciation and recognition, including recognition at the Dadasaheb Phalke Film Festival, Mumba International Film Festival, etc.</p>
+                        <p>For us, every production is more than a performance. It is an opportunity to give young artists real-world experiences, professional exposure and platforms to discover their potential—both on stage and on screen.</p>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <p>{program.description}</p>

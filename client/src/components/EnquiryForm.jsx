@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ArrowUpRight, LoaderCircle } from "lucide-react";
-import { programs } from "../data";
 import { validateEnquiry } from "../../../shared/validation";
 export default function EnquiryForm({ selectedProgram, onSelect }) {
   const [errors, setErrors] = useState({});
@@ -70,12 +69,12 @@ export default function EnquiryForm({ selectedProgram, onSelect }) {
           ],
           [
             "name",
-            "Participant's Name",
+            "The Student's Name",
             "text",
-            "Participant's full name",
+            "The student's full name",
             "off",
           ],
-          ["age", "Participant’s Age", "number", "Age in years", "off"],
+          ["age", "The Student's Age", "number", "Age in years", "off"],
           ["mobile", "Mobile Number", "tel", "Your contact number", "tel"],
           ["email", "Email Address", "email", "you@example.com", "email"],
         ].map(([key, label, type, placeholder, autoComplete]) => (
@@ -119,22 +118,15 @@ export default function EnquiryForm({ selectedProgram, onSelect }) {
         {error("address")}
       </label>
       <label>
-        Preferred Program <span aria-hidden="true">*</span>
-        <select
-          name="program"
-          required
-          value={selectedProgram}
-          onChange={(event) => onSelect(event.target.value)}
-          {...errorProps("program")}
-        >
-          <option value="">Select a program</option>
-          {programs.map((program) => (
-            <option key={program.id} value={program.id}>
-              {program.title}
-            </option>
-          ))}
-        </select>
-        {error("program")}
+        How did you hear about All Play Productions?
+        <input
+          name="referralSource"
+          type="text"
+          maxLength={200}
+          placeholder="Friend, social media, school, etc."
+          {...errorProps("referralSource")}
+        />
+        {error("referralSource")}
       </label>
       <label>
         Message

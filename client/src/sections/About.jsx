@@ -18,6 +18,16 @@ export default function About() {
                 alt="Children performing together on stage at All Play Productions"
               />
             </div>
+            <div className="about-extra-photos">
+              <Artwork
+                src="/documents/WithChild.jpeg"
+                alt="A child participating in an All Play Productions activity"
+              />
+              <Artwork
+                src="/documents/withChild.heic"
+                alt="A child with a performer at All Play Productions"
+              />
+            </div>
           </Reveal>
           <Reveal>
             <SectionHeading eyebrow="THE ALL PLAY PRODUCTIONS STORY">

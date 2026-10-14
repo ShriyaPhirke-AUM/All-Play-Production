@@ -1,7 +1,19 @@
 import { gallery } from "../data";
 import { SectionHeading } from "../components/UI";
 
-const featuredPhotos = [0, 5, 10, 17, 22].map((index) => gallery[0]?.images[index]).filter(Boolean);
+const celebrityVisitPhotos = gallery.find((item) => item.title === "Celebrity Visits")?.images ?? [];
+const featuredPhotos = [
+  ...[0, 5, 10, 17, 22].map((index) => gallery[0]?.images[index]),
+  celebrityVisitPhotos[0],
+  celebrityVisitPhotos[3],
+  { src: "/documents/puppet1.JPG", alt: "Puppet performance at All Play Productions" },
+  { src: "/documents/puppet2.jpeg", alt: "Puppet show at All Play Productions" },
+].filter((photo) => photo && ![
+  "/documents/IMG_2140.JPG",
+  "/documents/IMG_5192.JPG",
+  "/documents/B_carnival3.JPG",
+  "/documents/carnivalS4_2.JPG",
+].includes(photo.src));
 
 export default function PuppetShow() {
   return (

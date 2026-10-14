@@ -14,7 +14,6 @@ import FuturePlans from "./sections/FuturePlans";
 import FounderPage from "./pages/FounderPage";
 import TheatrePage from "./pages/TheatrePage";
 import AchievementsPage from "./pages/AchievementsPage";
-import DoodleRail from "./components/Doodles";
 const pageTitles = {
   "/founder": "Our Founder",
   "/about-theatre": "About the Theatre",
@@ -43,7 +42,6 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <Header />
-      <DoodleRail />
       <main id="main" className={page ? "" : "home-page"}>
         {page === "/founder" ? <FounderPage /> : page === "/about-theatre" ? <AchievementsPage /> : page === "/why-theatre" ? <>
           <TheatrePage />

@@ -215,7 +215,7 @@ export default function Community({ section, includeGallery = true }) {
               <EventCard key={item.id} event={item} onOpen={setEvent} />
             ))}
           </div>
-          <div className="center">
+          {section && <div className="center">
             <button
               className="button button-light"
               onClick={() => setExpanded((value) => !value)}
@@ -224,7 +224,7 @@ export default function Community({ section, includeGallery = true }) {
               {expanded ? "Show Fewer Activities" : "Explore All Activities"}
               <ArrowRight size={17} />
             </button>
-          </div>
+          </div>}
         </div>
       </section>}
       {section !== "performances" && includeGallery && <section id="gallery" className="section gallery-section">

@@ -105,8 +105,11 @@ h1, h2, h3 { font-family: 'Trebuchet MS', 'Arial Rounded MT Bold', var(--font-sa
 h1 em, h2 em { font-family: var(--font-display); font-weight: 600; }
 .founder-page .profile-intro h1 em { color: inherit; font-family: inherit; font-size: inherit; font-style: normal; font-weight: inherit; }
 .hero h1 { max-width: 720px; font-size: clamp(3.2rem, 5.3vw, 5rem); }
-.hero-art { object-position: 78% center; }
+.hero-art { object-position: 78% 28%; }
 .hero-art { filter: brightness(1.12) saturate(1.08); }
+@media (min-width: 1024px) and (max-height: 800px) {
+  .hero-art { object-position: 78% 18%; }
+}
 .hero-shade { background: radial-gradient(ellipse at 12% 22%, #b8d8d07d, transparent 44%), radial-gradient(ellipse at 45% 82%, #eab6bd91, transparent 52%), linear-gradient(90deg, #fbf5ebed 0%, #fbf5ebc7 30%, #fbf5eb52 49%, #fbf5eb00 72%); }
 .hero h1 em {
   padding-inline: .08em;
@@ -124,7 +127,7 @@ h1 em, h2 em { font-family: var(--font-display); font-weight: 600; }
 .section-heading { position: relative; padding-top: 8px; }
 .doodle { width: 84px; height: 100px; pointer-events: none; }
 .heading-doodle { width: 38px; height: 42px; margin-bottom: 5px; transform: rotate(-12deg); }
-.doodle-rail { position: fixed; inset: 95px 0 30px; pointer-events: none; z-index: 19; overflow: hidden; }
+.doodle-rail { position: absolute; inset: 90px 0 0; pointer-events: none; z-index: 2; overflow: hidden; }
 .side-doodle { position: absolute; width: clamp(36px, 5vw, 76px); height: 100px; opacity: .8; pointer-events: auto; cursor: pointer; transform-origin: center; animation: doodle-bob 7s ease-in-out infinite alternate; transition: color .2s ease, filter .2s ease; }
 .side-doodle-1 { left: 5px; top: 4%; }
 .side-doodle-2 { right: 5px; top: 16%; animation-delay: -3s; }
@@ -154,7 +157,6 @@ h1 em, h2 em { font-family: var(--font-display); font-weight: 600; }
   .side-doodle { width: 34px; opacity: .55; }
 }
 @media (max-width: 767px) {
-  .doodle-rail { inset: 88px 0 80px; }
   .side-doodle { width: 23px; height: 50px; opacity: .45; }
   .side-doodle-3, .side-doodle-6 { display: none; }
   .side-doodle-1, .side-doodle-5 { left: 0; }

@@ -1,7 +1,9 @@
 import { PrimaryButton } from "../components/UI";
+import DoodleRail from "../components/Doodles";
 export default function Hero() {
   return (
     <section id="home" className="hero">
+      <DoodleRail />
       <img
         className="hero-art"
         src="/hero.png"

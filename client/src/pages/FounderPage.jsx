@@ -6,7 +6,7 @@ export default function FounderPage() {
           <div className="founder-intro-copy">
             <p className="eyebrow">THE HEART BEHIND ALL PLAY PRODUCTIONS</p>
             <h1>Mrs. Varshaa <em>Raane</em></h1>
-            <p className="profile-lead"><strong><span className="founder-role-primary">Trustee - Atharva University Mumbai · Founder &amp; Creator - All Play Productions ·</span><br />Vice Chairman - Atharva Foundation</strong></p>
+            <p className="profile-lead"><strong><span className="founder-role-primary">Founder &amp; Creator - All Play Productions · Trustee - Atharva University Mumbai ·</span><br />Vice Chairman - Atharva Foundation</strong></p>
             <p>Mrs. Varshaa Raane is a visionary, changemaker and passionate advocate of the performing arts who empowers children and young people through theatre, cinema and creative expression. Her work focuses on nurturing confidence, developing personalities and creating inclusive opportunities for rural, tribal and underprivileged children across Maharashtra.</p>
           </div>
           <figure className="founder-portrait">

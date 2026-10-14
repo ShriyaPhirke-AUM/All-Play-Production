@@ -46,8 +46,9 @@ export default function About() {
               ))}
             </div>
             <div className="about-impact" aria-label="All Play impact">
-              <div><strong>600+</strong><span>young people trained</span></div>
-              <div><strong>50+</strong><span>productions created</span></div>
+              <div><strong>600+</strong><span>children &amp; youth</span></div>
+              <div><strong>50+</strong><span>theatrical productions</span></div>
+              <div className="short-film-impact"><strong>1</strong><span>short<br />film</span></div>
             </div>
           </Reveal>
         </div>
@@ -73,7 +74,7 @@ export default function About() {
             </h2>
             <h3 className="founder-name">Mrs. Varshaa Raane</h3>
             <p className="founder-role">
-              Trustee - Atharva University Mumbai · Founder & Creator - All Play Productions · Vice Chairman - Atharva Foundation
+              Founder & Creator - All Play Productions · Trustee - Atharva University Mumbai · Vice Chairman - Atharva Foundation
             </p>
             <p>
               Actor, filmmaker and advocate for creative education. Mrs. Varshaa Raane created

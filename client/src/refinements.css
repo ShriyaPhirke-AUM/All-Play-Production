@@ -80,12 +80,13 @@ p { line-height: 1.75; }
 .hero-shade { background: linear-gradient(90deg, #080808ed, #08080880 48%, #08080820); }
 .values-strip { padding: 13px 24px; font-size: 9px; letter-spacing: 1.5px; }
 .values-strip span:nth-child(even) { font-size: 14px; }
-.about-collage { min-height: 365px; padding-bottom: 30px; }
-.collage-main { height: 320px; }
-.collage-small { width: 43%; border-width: 5px; transform: rotate(3deg); }
-.collage-small img { height: 150px; }
-.about-extra-photos { display: flex; gap: 12px; margin-top: 14px; }
-.about-extra-photos img { width: calc(50% - 6px); height: 104px; object-fit: cover; border: 4px solid #fffaf6; border-radius: 5px; box-shadow: 3px 4px 0 #7d263d13; }
+.about-collage { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .8fr); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 12px; height: 440px; min-height: 0; padding: 0; }
+.about-collage .collage-main { grid-column: 1; grid-row: 1 / 4; height: auto; min-height: 0; overflow: hidden; border-radius: 4px; transform: none; box-shadow: 0 16px 38px #29151520; }
+.collage-main img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.about-collage .collage-small { position: relative; inset: auto; grid-column: 2; grid-row: 1; width: auto; min-width: 0; overflow: hidden; border: 0; border-radius: 4px; transform: none; box-shadow: 0 12px 28px #29151518; }
+.collage-small img { width: 100%; height: 100%; min-height: 0; object-fit: cover; transform: none; }
+.about-extra-photos { grid-column: 2; grid-row: 2 / 4; position: static; display: grid; grid-template-columns: 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px; width: auto; min-width: 0; }
+.about-extra-photos img { width: 100%; height: 100%; min-height: 0; object-fit: cover; border: 0; border-radius: 4px; box-shadow: 0 10px 24px #29151516; }
 .highlights { margin-top: 23px; padding-top: 20px; gap: 15px; font-size: 12px; }
 .about-impact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 18px; width: 100%; max-width: 560px; margin-top: 22px; padding-top: 17px; }
 .about-impact > div { display: grid; align-self: stretch; align-content: center; gap: 3px; min-width: 0; }
@@ -189,9 +190,7 @@ p { line-height: 1.75; }
   .hero-bottom { bottom: 22px; }
   .hero .button { font-size: 12px; }
   .split { gap: 30px; }
-  .about-collage { min-height: 305px; max-width: 390px; }
-  .collage-main { height: 270px; }
-  .collage-small img { height: 130px; }
+  .about-collage { height: 370px; max-width: 390px; }
   .founder-section .founder-layout { aspect-ratio: auto; min-height: 0; padding: 0 24px 32px; text-align: left; }
   .founder-layout > div { min-width: 0; max-width: 440px; }
   .founder-layout .portrait-frame { position: relative; z-index: 0; inset: auto; justify-content: center; width: calc(100% + 48px); max-width: none; height: auto; aspect-ratio: 3 / 2; margin: 0 -24px 20px; background: transparent; }

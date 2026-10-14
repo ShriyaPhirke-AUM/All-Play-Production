@@ -2,8 +2,8 @@ import { gallery } from "../data";
 import { SectionHeading } from "../components/UI";
 
 const celebrityVisitPhotos = gallery.find((item) => item.title === "Celebrity Visits")?.images ?? [];
-const featuredPhotos = [
-  ...[0, 5, 10, 17, 22].map((index) => gallery[0]?.images[index]),
+const existingPhotos = [
+  ...[0, 1, 3, 5, 7, 8, 10, 12, 14, 15, 16, 18, 20, 21, 23].map((index) => gallery[0]?.images[index]),
   celebrityVisitPhotos[0],
   celebrityVisitPhotos[3],
   { src: "/documents/puppet1.JPG", alt: "Puppet performance at All Play Productions" },
@@ -14,6 +14,20 @@ const featuredPhotos = [
   "/documents/B_carnival3.JPG",
   "/documents/carnivalS4_2.JPG",
 ].includes(photo.src));
+const newStoryPhotos = [
+  { src: "/documents/kshitija.jpeg", alt: "Kshitija in an All Play Productions story" },
+  { src: "/bol-bol-raani.jpeg", alt: "Bol Bol Raani at All Play Productions" },
+  { src: "/documents/shriGanesha.jpeg", alt: "Shri Ganesha story at All Play Productions" },
+  { src: "/documents/school.png", alt: "School story at All Play Productions" },
+  { src: "/documents/ghongaBasant.jpeg", alt: "Ghonga Basant at All Play Productions" },
+];
+let nextStoryPhoto = 0;
+const featuredPhotos = existingPhotos.flatMap((photo, index) => [
+  photo,
+  ...(index % 4 === 2 && nextStoryPhoto < newStoryPhotos.length
+    ? [newStoryPhotos[nextStoryPhoto++]]
+    : []),
+]);
 
 export default function PuppetShow() {
   return (

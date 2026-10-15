@@ -25,8 +25,8 @@ export default function AchievementsPage() {
             </div>
             <p className="achievement-description">Mrs. Varshaa Raane, Founder of All Play Productions and Trustee of Atharva University, empowers youth through theatre and creative expression. Through her social and educational initiatives, she has positively impacted young lives, inspiring confidence, creativity, and meaningful change.</p>
             <div className="achievement-impact">
-              <div><strong>600+</strong><span>young lives impacted</span></div>
-              <div><strong>50+</strong><span>productions created</span></div>
+              <div><strong>600+</strong><span>children &amp; youth</span></div>
+              <div><strong>50+</strong><span>theatrical productions</span></div>
             </div>
           </section>
         </div>

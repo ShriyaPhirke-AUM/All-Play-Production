@@ -81,6 +81,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   color: var(--ink);
   border-color: var(--border);
 }
+.home-page .cta-section .cta-content { text-align: center; }
 .cta-section h2 em, .cta-section .eyebrow, .cta-sparkle { color: var(--maroon); }
 .cta-section p:not(.eyebrow), .cta-section small { color: var(--muted); }
 .enquiry-form { background: #f3d8da; border-color: var(--border); }

@@ -12,8 +12,8 @@ export default function TheatrePage() {
           <img src="/Demo.jpeg" width="1600" height="1068" alt="Young All Play performers sharing the stage" />
         </div>
         <div className="theatre-stats" aria-label="Our impact">
-          <div><strong>600+</strong><p>School students and college youth trained</p></div>
-          <div><strong>50+</strong><p>Productions created under Mrs. Varshaa Raane’s guidance</p></div>
+          <div><strong>600+</strong><span>children &amp; youth</span></div>
+          <div><strong>50+</strong><span>theatrical productions</span></div>
         </div>
         <div className="profile-body">
           <section>

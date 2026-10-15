@@ -16,8 +16,8 @@ export default function FounderPage() {
         </div>
         <div className="founder-impact" aria-label="Career and community impact">
           <div><strong>22+ years</strong><span>with Air India</span></div>
-          <div><strong>600+</strong><span>young people trained</span></div>
-          <div><strong>50+</strong><span>productions created</span></div>
+          <div><strong>600+</strong><span>children &amp; youth</span></div>
+          <div><strong>50+</strong><span>theatrical productions</span></div>
         </div>
         <div className="profile-body founder-story">
           <section>

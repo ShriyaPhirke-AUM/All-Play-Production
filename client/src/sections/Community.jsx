@@ -215,7 +215,7 @@ export default function Community({ section, includeGallery = true }) {
               <EventCard key={item.id} event={item} onOpen={setEvent} />
             ))}
           </div>
-          {section && <div className="center">
+          {section && section !== "performances" && <div className="center">
             <button
               className="button button-light"
               onClick={() => setExpanded((value) => !value)}

@@ -5,7 +5,7 @@ import { contact, whatsappUrl } from "../data";
 export function ContactCallToAction() {
   return (
       <section className="cta-section">
-        <div className="container">
+        <div className="container cta-content">
           <p className="eyebrow">THE NEXT CHAPTER STARTS HERE</p>
           <h2>
             Your Stage <em>Is Waiting</em>

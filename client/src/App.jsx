@@ -54,15 +54,13 @@ export default function App() {
         </ContentPage> : <>
         <Hero />
         <div className="values-strip" aria-label="Our approach">
-          <span>IMAGINATION</span>
+          <span>LEARN</span>
           <span aria-hidden="true">✳</span>
-          <span>EXPRESSION</span>
+          <span>EXPRESS</span>
           <span aria-hidden="true">✳</span>
-          <span>CONFIDENCE</span>
+          <span>PERFORM</span>
           <span aria-hidden="true">✳</span>
-          <span>CONNECTION</span>
-          <span aria-hidden="true">✳</span>
-          <span>THE JOY OF THEATRE</span>
+          <span><em>GROW</em></span>
         </div>
         <About />
         <Programs onSelect={setSelectedProgram} hideIntroDescription />

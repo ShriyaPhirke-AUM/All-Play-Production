@@ -1,52 +1,70 @@
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Artwork, Reveal, SectionHeading } from "../components/UI";
+const posters = [
+  { src: "/documents/school.png", alt: "All Play Productions school play poster" },
+  { src: "/documents/kshitija.jpeg", alt: "Kshitija play poster" },
+  { src: "/bol-bol-raani.jpeg", alt: "Bol Bol Raani short film poster" },
+  { src: "/documents/shriGanesha.jpeg", alt: "Shri Ganesha play poster" },
+  { src: "/documents/ghongaBasant.jpeg", alt: "Ghonga Basant play poster" },
+];
 export default function About() {
+  const [activePoster, setActivePoster] = useState(0);
+  useEffect(() => {
+    const preloadedPosters = posters.map(({ src }) => {
+      const image = new window.Image();
+      image.src = src;
+      return image;
+    });
+    const timer = window.setInterval(() => {
+      setActivePoster((current) => (current + 1) % posters.length);
+    }, 4000);
+    return () => {
+      window.clearInterval(timer);
+      preloadedPosters.forEach((image) => {
+        image.onload = null;
+        image.onerror = null;
+      });
+    };
+  }, []);
   return (
     <>
       <section id="about" className="section about-section">
-        <div className="container split">
-          <Reveal className="about-collage">
-            <div className="collage-main">
-              <Artwork
-                src="/documents/founderChild.jpg"
-                alt="Children raising their hands during an All Play workshop"
+        <div className="container about-story-layout">
+          <Reveal className="about-poster-wall">
+            <AnimatePresence initial={false} mode="sync">
+              <motion.img
+                key={posters[activePoster].src}
+                src={posters[activePoster].src}
+                alt={posters[activePoster].alt}
+                loading="eager"
+                decoding="async"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.75, ease: "easeInOut" }}
               />
-            </div>
-            <div className="collage-small">
-              <Artwork
-                src="/Demo.jpeg"
-                alt="Children performing together on stage at All Play Productions"
-              />
-            </div>
-            <div className="about-extra-photos">
-              <Artwork
-                src="/documents/WithChild.jpeg"
-                alt="A child participating in an All Play Productions activity"
-              />
-              <Artwork
-                src="/documents/withChild.heic"
-                alt="A child with a performer at All Play Productions"
-              />
-            </div>
+            </AnimatePresence>
           </Reveal>
-          <Reveal>
+          <Reveal className="about-story-copy">
             <SectionHeading eyebrow="THE ALL PLAY PRODUCTIONS STORY">
               Where Creativity
               <br />
               Meets <em>Confidence</em>
             </SectionHeading>
             <p>
-              All Play Productions introduces children to drama and the performing arts through fun, creativity and joy. Our workshops help children discover their individuality, build self-esteem and find the courage to share their unique voices with the world.
+              We take immense pleasure in introducing an ancient art of Drama &amp; performing arts to children and inculcate the qualities it develops in our children. It’s an endeavor to empower them about themselves and life through fun and joy, to illuminate their brilliance and shine their individuality through the processes, as who they are and be confident to share themselves with world. It’s an effort to let them know that they do matter and bring out their uniqueness joyfully.
             </p>
             <p>
-              We sincerely appreciate the support, guidance and commitment of the Atharva University team in helping us nurture young talent and bring their creativity to life. Together, we aspire to empower the next generation of performers, develop their artistic potential and create a meaningful mark in the vast world of entertainment.
+              Over the years, All Play Productions has trained approximately 600+ children and teenagers and created around 50 theatrical productions. Our students have participated in Maharashtra Rajya Bal Natya Spardha, Jhankriti – a global competition, and have received opportunities on platforms such as Chala Hawa Yeu Dya ( A Zee Marathi reality show),etc. They have also been featured in All Play Production’s first ever Marathi short film - Bol Bol Rani, Itta Itta Aani.
             </p>
             <a className="text-link section-read-more" href="/why-theatre">Read more about the theatre ↗</a>
             <div className="highlights">
               {[
                 "Structured Training",
                 "Creative Exposure",
-                "Live Performances & Silhouette Performance",
+                "Live Performances",
                 "Skills for Life",
               ].map((text) => (
                 <span key={text}>

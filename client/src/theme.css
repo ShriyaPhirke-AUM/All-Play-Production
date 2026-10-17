@@ -228,6 +228,7 @@ body:has(.home-page) {
   background: transparent;
 }
 .home-page .hero,
+.home-page .about-section,
 .home-page .founder-section,
 .home-page .programs-intro-section,
 .home-page .featured-programs-section,

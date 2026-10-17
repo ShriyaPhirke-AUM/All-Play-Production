@@ -63,9 +63,7 @@ export default function App() {
           <span><em>GROW</em></span>
         </div>
         <About />
-        <Programs onSelect={setSelectedProgram} hideIntroDescription />
-        <WhyTheatre />
-        <Community includeGallery={false} />
+        <Programs onSelect={setSelectedProgram} hideIntroDescription hideProgramsSection />
         <FuturePlans />
         <PuppetShow />
         <ContactCallToAction />

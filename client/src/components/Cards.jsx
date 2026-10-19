@@ -45,7 +45,7 @@ export function LearningCard({ item, index }) {
     <article className="learning-card">
       <div className="learning-top">
         <Icon name={item.icon} />
-        <span>0{index + 1}</span>
+        <span>{String(item.number ?? index + 1).padStart(2, "0")}</span>
       </div>
       <h3>{item.title}</h3>
       <p>{item.description}</p>

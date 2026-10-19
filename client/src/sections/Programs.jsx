@@ -20,7 +20,7 @@ const featuredPrograms = [
     description: "A woman blessed with mystical powers has always struggled to live a “normal” life. Different from those around her, she often finds herself misunderstood and unaccepted by society. Her deeply personal journey explores resilience, vulnerability, and the courage to embrace her true self.",
   },
 ];
-export default function Programs({ onSelect, hideIntroDescription = false, hideProgramsSection = false }) {
+export default function Programs({ onSelect, hideIntroDescription = false, hideProgramsSection = false, hideLearningSection = false }) {
   const [activeProgram, setActiveProgram] = useState(null);
   const [carnivalMarathi, setCarnivalMarathi] = useState(true);
   const [dramaMarathi, setDramaMarathi] = useState(true);
@@ -199,7 +199,7 @@ export default function Programs({ onSelect, hideIntroDescription = false, hideP
         </div>
       </section>
       */}
-      <section className="section learning-section programs-design">
+      {!hideLearningSection && <section className="section learning-section programs-design">
         <div className="container">
           <SectionHeading
             eyebrow="BEYOND THE SCRIPT"
@@ -214,7 +214,7 @@ export default function Programs({ onSelect, hideIntroDescription = false, hideP
             ))}
           </div>
         </div>
-      </section>
+      </section>}
     </>
   );
 }

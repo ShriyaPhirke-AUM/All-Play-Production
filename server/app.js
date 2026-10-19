@@ -147,6 +147,47 @@ export function createApp({ rateMax = 10, emailTransport } = {}) {
       });
     }
   });
+  app.use("/api/feedback", rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: rateMax,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+    handler: (_req, res) => res.status(429).json({ success: false, message: "Too many feedback submissions. Please try again in 15 minutes." }),
+  }));
+  app.post("/api/feedback", async (req, res) => {
+    if (!req.is("application/json")) return res.status(415).json({ success: false, message: "Use application/json." });
+    const source = req.body && typeof req.body === "object" && !Array.isArray(req.body) ? req.body : {};
+    const cleanText = (value, max) => typeof value === "string" ? value.trim().replace(/[\u0000-\u001F\u007F<>]/g, "").slice(0, max) : "";
+    const data = {
+      name: cleanText(source.name, 100), relationship: cleanText(source.relationship, 20),
+      studentName: cleanText(source.studentName, 100),
+      rating: cleanText(String(source.rating ?? ""), 1), feedback: cleanText(source.feedback, 2000),
+      publishPermission: source.publishPermission === true,
+    };
+    const errors = {};
+    if (data.name.length < 2) errors.name = "Please enter your name.";
+    if (!["Parent", "Student", "Visitor", "Other"].includes(data.relationship)) errors.relationship = "Please select your relationship.";
+    if (!/^[1-5]$/.test(data.rating)) errors.rating = "Please select a rating from 1 to 5.";
+    if (data.feedback.length < 5) errors.feedback = "Please write a little about your experience.";
+    if (Object.keys(errors).length) return res.status(422).json({ success: false, message: "Please check the required fields.", errors });
+    const apiKey = process.env.RESEND_API_KEY;
+    const from = process.env.ENQUIRY_FROM_EMAIL;
+    if (!emailTransport && (!apiKey || !from)) return res.status(503).json({ success: false, message: "Feedback submission is not available yet. Please contact us directly." });
+    const emailText = [
+      `Name: ${data.name}`, `Relationship: ${data.relationship}`, `Student: ${data.studentName || "Not provided"}`,
+      `Rating: ${data.rating}/5`, `Permission to publish: ${data.publishPermission ? "Yes" : "No"}`, "", data.feedback,
+    ].join("\n");
+    try {
+      const emailPayload = { from, to: ["allplayproductionsworkshops@gmail.com"], subject: "Website feedback", text: emailText };
+      const delivery = emailTransport ? await emailTransport(emailPayload) : await fetch("https://api.resend.com/emails", {
+        method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify(emailPayload), signal: AbortSignal.timeout(10000),
+      });
+      if (!delivery.ok) return res.status(502).json({ success: false, message: "We could not submit your feedback right now. Please try again." });
+      return res.json({ success: true, message: "Thank you! Your feedback has been submitted." });
+    } catch {
+      return res.status(502).json({ success: false, message: "We could not submit your feedback right now. Please try again." });
+    }
+  });
   app.use("/api", (_req, res) =>
     res
       .status(404)
@@ -167,7 +208,7 @@ export function createApp({ rateMax = 10, emailTransport } = {}) {
     }),
   );
   app.use(express.static(dist, { maxAge: 0 }));
-  app.get(["/", "/founder", "/about-theatre", "/programs", "/why-theatre", "/performances", "/gallery", "/contact"], (_req, res) => res.sendFile(`${dist}/index.html`));
+  app.get(["/", "/founder", "/about-theatre", "/programs", "/why-theatre", "/performances", "/testimonials", "/gallery", "/contact"], (_req, res) => res.sendFile(`${dist}/index.html`));
   app.use((_req, res) =>
     res.status(404).json({ success: false, message: "Page not found." }),
   );

@@ -8,6 +8,7 @@ export const navigation = [
   ["programs", "Our Programs"],
   ["performances", "Performances"],
   ["about-theatre", "Achievements"],
+  ["testimonials", "Testimonials"],
   ["gallery", "Gallery"],
   ["contact", "Contact"],
 ];
@@ -53,7 +54,7 @@ export default function Header() {
   }, []);
   return (
     <>
-      <header className={`header ${scrolled || window.location.pathname !== "/" ? "is-scrolled" : ""}`}>
+      <header className={`header ${scrolled ? "is-scrolled" : ""}`}>
         <div className="header-inner">
           <Logo />
           <nav className="desktop-nav" aria-label="Main navigation">

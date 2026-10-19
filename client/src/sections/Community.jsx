@@ -87,11 +87,13 @@ export default function Community({ section, includeGallery = true }) {
             >
               Stories Beyond <em>the Script</em>
             </SectionHeading>
-            <span className="small-note">
-              Our journey so far
-              <br />
-              Theatre, outreach and film
-            </span>
+            {!section && (
+              <span className="small-note">
+                Our journey so far
+                <br />
+                Theatre, outreach and film
+              </span>
+            )}
           </div>
           <div className="production-poster-grid">
             {productionPosters.map((poster) => {
@@ -234,7 +236,7 @@ export default function Community({ section, includeGallery = true }) {
               eyebrow="A LITTLE PLAY. A LOT OF HEART."
               description="Explore our stage work, film poster and the leaflets that tell our story."
             >
-              Moments from <em>All Play</em>
+              Moments from <em>All Play Productions</em>
             </SectionHeading>
             
           </div>

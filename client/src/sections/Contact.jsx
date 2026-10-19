@@ -35,7 +35,7 @@ export default function Contact({ selectedProgram, onSelect }) {
         <div className="container contact-layout">
           <div>
             <SectionHeading
-              eyebrow="LET’S CONNECT"
+              eyebrow="GET IN TOUCH"
               description="Find the right program for your young performer."
             >
               Let’s <em>Connect.</em>
@@ -56,7 +56,7 @@ export default function Contact({ selectedProgram, onSelect }) {
                   contact.email,
                   contact.email ? `mailto:${contact.email}` : null,
                 ],
-                [MapPin, "Training Venue", contact.venue],
+                [MapPin, "Training Venue", [contact.venue, contact.venue2]],
               ].map(([Icon, label, value, href]) => (
                 <div key={label}>
                   <Icon size={21} strokeWidth={1.4} />
@@ -64,6 +64,13 @@ export default function Contact({ selectedProgram, onSelect }) {
                     <h3>{label === "Phone" ? "Theatre enquiries" : label}</h3>
                     {href ? (
                       <a href={href}>{value}</a>
+                    ) : Array.isArray(value) ? (
+                      value.filter(Boolean).map((address) => (
+                        <p className="venue-address" key={address}>
+                          <span aria-hidden="true">{String(value.indexOf(address) + 1).padStart(2, "0")}</span>
+                          {address}
+                        </p>
+                      ))
                     ) : (
                       <p>{value || "To be confirmed"}</p>
                     )}

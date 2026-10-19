@@ -11,9 +11,10 @@ import WhyTheatre from "./sections/WhyTheatre";
 import Community from "./sections/Community";
 import Contact, { ContactCallToAction } from "./sections/Contact";
 import FuturePlans from "./sections/FuturePlans";
+import FounderSpotlight from "./sections/FounderSpotlight";
 import FounderPage from "./pages/FounderPage";
-import TheatrePage from "./pages/TheatrePage";
 import AchievementsPage from "./pages/AchievementsPage";
+import TestimonialsPage from "./pages/TestimonialsPage";
 const pageTitles = {
   "/founder": "Our Founder",
   "/about-theatre": "About the Theatre",
@@ -21,10 +22,11 @@ const pageTitles = {
   "/why-theatre": "Why Theatre?",
   "/performances": "Performances",
   "/gallery": "Gallery",
+  "/testimonials": "Testimonials",
   "/contact": "Contact",
 };
 function ContentPage({ title, children, className = "" }) {
-  const hidePageTitle = ["Our Programs", "Performances", "Contact"].includes(title);
+  const hidePageTitle = ["Our Programs", "Performances", "Why Theatre?", "Testimonials", "Contact"].includes(title);
   return <article className={`content-page ${className}`}>
     {title !== "Gallery" && !hidePageTitle && <div className="container content-page-intro">
       {!hidePageTitle && <h1>{title}</h1>}
@@ -43,13 +45,11 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <Header />
       <main id="main" className={page ? "" : "home-page"}>
-        {page === "/founder" ? <FounderPage /> : page === "/about-theatre" ? <AchievementsPage /> : page === "/why-theatre" ? <>
-          <TheatrePage />
-          <WhyTheatre />
-        </> : pageTitles[page] ? <ContentPage title={pageTitles[page]} className={page === "/programs" ? "programs-page" : page === "/gallery" ? "gallery-page" : page === "/contact" ? "contact-page" : ""}>
+        {page === "/founder" ? <FounderPage /> : page === "/about-theatre" ? <AchievementsPage /> : page === "/why-theatre" ? <ContentPage title={pageTitles[page]} className="why-theatre-page"><WhyTheatre /></ContentPage> : pageTitles[page] ? <ContentPage title={pageTitles[page]} className={page === "/programs" ? "programs-page" : page === "/gallery" ? "gallery-page" : page === "/contact" ? "contact-page" : ""}>
           {page === "/programs" && <Programs onSelect={setSelectedProgram} />}
           {page === "/performances" && <Community section="performances" />}
           {page === "/gallery" && <Community section="gallery" />}
+          {page === "/testimonials" && <TestimonialsPage />}
           {page === "/contact" && <Contact selectedProgram={selectedProgram} onSelect={setSelectedProgram} />}
         </ContentPage> : <>
         <Hero />
@@ -64,6 +64,7 @@ export default function App() {
         </div>
         <About />
         <Programs onSelect={setSelectedProgram} hideIntroDescription hideProgramsSection />
+        <FounderSpotlight />
         <FuturePlans />
         <PuppetShow />
         <ContactCallToAction />

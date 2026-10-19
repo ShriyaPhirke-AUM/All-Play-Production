@@ -33,6 +33,16 @@ export default function Hero() {
             Enquire Now
           </PrimaryButton>
         </div>
+        <p className="hero-affiliations">
+          <span className="hero-affiliations-label">Affiliated by</span>
+          <span className="hero-affiliations-list">
+            <strong>Atharva University Mumbai</strong>
+            <span aria-hidden="true">|</span>
+            <strong>Atharva School of Film Making</strong>
+            <span aria-hidden="true">·</span>
+            <strong>Atharva School of Fashion &amp; Arts</strong>
+          </span>
+        </p>
       </div>
     </section>
   );

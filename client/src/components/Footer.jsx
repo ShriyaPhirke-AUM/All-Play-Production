@@ -93,7 +93,10 @@ export default function Footer({ onPolicy }) {
               <span>Email</span>
               {contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : <span>To be confirmed</span>}
               <span>Venue</span>
-              <span>{contact.venue || "To be confirmed"}</span>
+              <span className="footer-venue-list">
+                <span className="footer-venue-item"><strong>01</strong><span>{contact.venue || "To be confirmed"}</span></span>
+                {contact.venue2 && <span className="footer-venue-item"><strong>02</strong><span>{contact.venue2}</span></span>}
+              </span>
             </p>
             <div className="footer-social-links" aria-label="Social media">
               <a className="social-link" href={contact.instagram} target="_blank" rel="noreferrer">

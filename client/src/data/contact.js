@@ -6,6 +6,7 @@ export const contact = {
   whatsapp: "+91 9167967756",
   email: "allplayproductionsworkshops@gmail.com",
   venue: "The Village Art & Culture Center, Kora Kendra Hall, behind Golden Delicacy Restaurant, Shimpoli Road (opposite Reliance Mall), Shimpoli, Borivali (W)",
+  venue2: "Atharva University Mumbai, Malad West, Mumbai, Maharashtra - 400095",
   timings: "",
   instagram: "https://www.instagram.com/allplayproductions/",
   facebook: "https://www.facebook.com/Allplayproductions/",

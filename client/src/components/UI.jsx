@@ -8,6 +8,9 @@ import {
   Accessibility,
   BookOpen,
   Users,
+  Activity,
+  Eye,
+  Map,
 } from "lucide-react";
 const icons = {
   Drama,
@@ -17,6 +20,9 @@ const icons = {
   Accessibility,
   BookOpen,
   Users,
+  Activity,
+  Eye,
+  Map,
 };
 export function Icon({ name, ...props }) {
   const Component = icons[name] || Drama;
